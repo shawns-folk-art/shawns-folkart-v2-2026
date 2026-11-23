@@ -20,18 +20,18 @@
       var video = document.querySelector("video");
       // Touch devices retain native controls. Without JavaScript they do too.
       var hover = window.matchMedia("(hover: hover) and (pointer: fine)");
-      var pointerInside = false;
+      var pointerInside = video.matches(":hover");
       var keyboardActive = false;
 
       function updateControls() {
         video.controls = !hover.matches || pointerInside || keyboardActive;
       }
 
-      document.documentElement.addEventListener("pointerenter", function () {
+      video.addEventListener("pointerenter", function () {
         pointerInside = true;
         updateControls();
       });
-      document.documentElement.addEventListener("pointerleave", function () {
+      video.addEventListener("pointerleave", function () {
         pointerInside = false;
         keyboardActive = false;
         updateControls();
@@ -47,6 +47,16 @@
       });
       hover.addEventListener("change", updateControls);
       updateControls();
+
+      video.play().catch(function (error) {
+        if (error.name === "NotAllowedError") {
+          video.muted = true;
+          return video.play().catch(function () {
+            // Keep sound available if playback requires a manual start.
+            video.muted = false;
+          });
+        }
+      });
     });
   </script>
   <style>
@@ -60,26 +70,26 @@
     }
 
     body {
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     video {
       display: block;
-      width: 240px;
-      max-width: 100%;
-      max-height: 100%;
+      width: min(240px, 100vw, calc(100vh * 16 / 11));
       height: auto;
+      aspect-ratio: 16 / 11;
       object-fit: contain;
     }
   </style>
 </head>
 
 <body>
-  <video controls playsinline preload="metadata" aria-label="Folk Art Show 2002 video">
-    <source src="folkartshow2002.mp4" type="video/mp4" />
+  <video controls playsinline preload="metadata" width="240" height="165" aria-label="Folk Art Show 2002 video">
+    <source src="folkartshow2002.mp4?v=2" type="video/mp4" />
     Your browser does not support HTML video.
-    <a href="folkartshow2002.mp4">Download the video</a>
+    <a href="folkartshow2002.mp4?v=2">Download the video</a>
   </video>
 </body>
 

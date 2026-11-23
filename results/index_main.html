@@ -54,20 +54,7 @@ parent.frames[0].document.location.href="../music2.htm";
       newwindow = window.open(url, name, str);
     }
   </script>
-  <script>
-    window.RufflePlayer = window.RufflePlayer || {};
-    window.RufflePlayer.config = {
-      autoplay: "on",
-      splashScreen: false,
-      unmuteOverlay: "hidden",
-      urlRewriteRules: [
-        [
-          /^https?:\/\/(?:www\.)?touchwooddesign\.com\/common\/(nav2?\.swf)$/i,
-          new URL("../common/", window.location.href).href + "$1",
-        ],
-      ],
-    };
-  </script>
+  <script src="../scripts/ruffle-config.js" data-rewrite-navigation></script>
   <script src="../vendor/ruffle/0.7.1/ruffle.js"></script>
 </head>
 

@@ -58,23 +58,12 @@ window.open(URLtoload,'linkwindow','height=400,width=400,scrollbars=yes,status=n
         );
       }
     </script>
+    <script src="../scripts/ruffle-config.js" data-rewrite-navigation></script>
     <script>
-      window.RufflePlayer = window.RufflePlayer || {};
-      window.RufflePlayer.config = {
-        autoplay: "on",
-        splashScreen: false,
-        unmuteOverlay: "hidden",
-        urlRewriteRules: [
-          [
-            /^https?:\/\/(?:www\.)?touchwooddesign\.com\/common\/(nav2?\.swf)$/i,
-            new URL("../common/", window.location.href).href + "$1",
-          ],
-          [
-            /^(?:.*\/)?links2\.txt$/i,
-            new URL("links-public.txt", window.location.href).href,
-          ],
-        ],
-      };
+      window.RufflePlayer.config.urlRewriteRules.push([
+        /^(?:.*\/)?links2\.txt$/i,
+        new URL("links-public.txt", window.location.href).href,
+      ]);
     </script>
     <script src="../vendor/ruffle/0.7.1/ruffle.js"></script>
   </head>

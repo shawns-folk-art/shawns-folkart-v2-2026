@@ -2,55 +2,54 @@
 <!-- @format -->
 
 <html lang="en">
-  <head>
-    <title>whats_new</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="../favicon/site.webmanifest" />
-  </head>
-  <body bgcolor="#FFFFFF">
-    <!-- URL's used in the movie-->
-    <a href="newgallery.swf"></a>
-    <!-- text used in the movie-->
-    <!--The summer of 2002 has beena busy one. I spent  most of itcreating works for two shows.While my friends were outjet-skiing and swimming atthe cottage I was in my garage sweating & carving, painting & swearing.The reason: to meet a very important deadline.My first real show.  One in September and one inNovember.  After theseshows are done I'm goingto take a long break.Hope you like what you see...--><object
-      classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-      codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-      width="760"
-      height="420"
-      id="whats_new"
-      align=""
-    >
-      <param name="movie" value="whats_new.swf" />
+
+<head>
+  <title>Shawn's Folk Art 2026 :: What's New</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
+  <link rel="manifest" href="../favicon/site.webmanifest" />
+  <link rel="stylesheet" href="../css/flash-stage.css" />
+  <style>
+    html {
+      overflow: hidden;
+    }
+
+    .flash-stage {
+      /* Keep the entire framed stage visible in smaller popup windows. */
+      width: min(760px, calc(100vw - 2px), calc((100vh - 2px) * 760 / 420));
+      width: min(760px, calc(100vw - 2px), calc((100dvh - 2px) * 760 / 420));
+    }
+  </style>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+      autoplay: "on",
+      splashScreen: false,
+      unmuteOverlay: "hidden",
+    };
+  </script>
+  <script src="../vendor/ruffle/0.7.1/ruffle.js"></script>
+</head>
+
+<body bgcolor="#FFFFFF">
+  <!-- URL's used in the movie-->
+  <a href="newgallery.swf"></a>
+  <!-- text used in the movie-->
+  <!--The summer of 2002 has beena busy one. I spent  most of itcreating works for two shows.While my friends were outjet-skiing and swimming atthe cottage I was in my garage sweating & carving, painting & swearing.The reason: to meet a very important deadline.My first real show.  One in September and one inNovember.  After theseshows are done I'm goingto take a long break.Hope you like what you see...-->
+  <div class="flash-stage">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+      codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="760"
+      height="420" id="whats_new" align="">
+      <param name="movie" value="./whats_new.swf" />
       <param name="quality" value="high" />
       <param name="bgcolor" value="#FFFFFF" />
-      <embed
-        src="whats_new.swf"
-        quality="high"
-        bgcolor="#FFFFFF"
-        width="760"
-        height="420"
-        name="whats_new"
-        ALIGN=""
-        type="application/x-shockwave-flash"
-        PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"
-      />
+      <embed src="./whats_new.swf" quality="high" bgcolor="#FFFFFF" width="760" height="420" name="whats_new" ALIGN=""
+        type="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" />
     </object>
-  </body>
+  </div>
+</body>
+
 </html>

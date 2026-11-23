@@ -84,8 +84,18 @@
     </script>
     <script language="JavaScript" type="text/javascript">
       function runcenter(url, name, height, width) {
+        var isWhatsNew = url === "whats_new.html";
+        if (isWhatsNew) {
+          // Allow room for the 762 × 422 framed stage and margins.
+          name = "whatsNew";
+          height = 462;
+          width = 802;
+        }
         var str = "height=" + height + ",innerHeight=" + height;
         str += ",width=" + width + ",innerWidth=" + width;
+        if (isWhatsNew) {
+          str += ",popup=yes,scrollbars=no,resizable=yes";
+        }
         if (url === "../video1/index1.htm" || url === "../video2/index1.htm") {
           // Browsers choose which security/address UI must remain visible.
           str += ",popup=yes,toolbar=no,menubar=no,location=no,status=no";

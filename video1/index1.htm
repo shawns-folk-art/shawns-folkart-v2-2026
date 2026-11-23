@@ -15,6 +15,40 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
   <link rel="manifest" href="../favicon/site.webmanifest" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var video = document.querySelector("video");
+      // Touch devices retain native controls. Without JavaScript they do too.
+      var hover = window.matchMedia("(hover: hover) and (pointer: fine)");
+      var pointerInside = false;
+      var keyboardActive = false;
+
+      function updateControls() {
+        video.controls = !hover.matches || pointerInside || keyboardActive;
+      }
+
+      document.documentElement.addEventListener("pointerenter", function () {
+        pointerInside = true;
+        updateControls();
+      });
+      document.documentElement.addEventListener("pointerleave", function () {
+        pointerInside = false;
+        keyboardActive = false;
+        updateControls();
+      });
+      document.addEventListener("keydown", function () {
+        keyboardActive = true;
+        updateControls();
+      });
+      window.addEventListener("blur", function () {
+        pointerInside = false;
+        keyboardActive = false;
+        updateControls();
+      });
+      hover.addEventListener("change", updateControls);
+      updateControls();
+    });
+  </script>
   <style>
     html,
     body {
@@ -48,40 +82,6 @@
     Your browser does not support HTML video.
     <a href="shawn.mp4">Download the video</a>
   </video>
-  <script>
-    (function () {
-      var video = document.querySelector("video");
-      // Touch devices retain native controls. Without JavaScript they do too.
-      var hover = window.matchMedia("(hover: hover) and (pointer: fine)");
-      var pointerInside = false;
-      var keyboardActive = false;
-
-      function updateControls() {
-        video.controls = !hover.matches || pointerInside || keyboardActive;
-      }
-
-      document.documentElement.addEventListener("pointerenter", function () {
-        pointerInside = true;
-        updateControls();
-      });
-      document.documentElement.addEventListener("pointerleave", function () {
-        pointerInside = false;
-        keyboardActive = false;
-        updateControls();
-      });
-      document.addEventListener("keydown", function () {
-        keyboardActive = true;
-        updateControls();
-      });
-      window.addEventListener("blur", function () {
-        pointerInside = false;
-        keyboardActive = false;
-        updateControls();
-      });
-      hover.addEventListener("change", updateControls);
-      updateControls();
-    })();
-  </script>
 </body>
 
 </html>

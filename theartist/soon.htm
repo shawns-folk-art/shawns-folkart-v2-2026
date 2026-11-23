@@ -15,6 +15,23 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
   <link rel="manifest" href="../favicon/site.webmanifest" />
+  <script type="text/javascript">
+    function goBackOrHome() {
+      var navigation = window.navigation;
+      // The Navigation API can distinguish backward from forward history.
+      // Older browsers and file URLs use the available history length instead.
+      var canGoBack = navigation && navigation.currentEntry
+        ? navigation.canGoBack
+        : window.history.length > 1;
+
+      if (canGoBack) {
+        window.history.back();
+      } else {
+        window.location.assign('../index.html');
+      }
+      return false;
+    }
+  </script>
   <style>
     html {
       height: 100%;
@@ -49,23 +66,6 @@
       height: 100%;
     }
   </style>
-  <script type="text/javascript">
-    function goBackOrHome() {
-      var navigation = window.navigation;
-      // The Navigation API can distinguish backward from forward history.
-      // Older browsers and file URLs use the available history length instead.
-      var canGoBack = navigation && navigation.currentEntry
-        ? navigation.canGoBack
-        : window.history.length > 1;
-
-      if (canGoBack) {
-        window.history.back();
-      } else {
-        window.location.assign('../index.html');
-      }
-      return false;
-    }
-  </script>
 </head>
 
 <body bgcolor="#FFFFFF" text="#000000">

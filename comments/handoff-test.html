@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flash Comments handoff test</title>
+  <script src="../vendor/ruffle/0.7.1/ruffle.js" defer></script>
+  <script src="../scripts/ruffle-config.js" data-rewrite-navigation></script>
+  <script src="handoff-test.js" type="module"></script>
+</head>
+<body>
+  <h1>Flash Comments handoff test</h1>
+  <p>Local simulation. Enter dummy values in Flash, then click its Submit button.</p>
+  <ul>
+    <li>Name: Test Visitor</li>
+    <li>Email: visitor@example.com</li>
+    <li>Comments: Test message 1</li>
+  </ul>
+  <p>Try cancellation and rejection first. Check that the three values remain editable.
+    Change the message and submit again, then simulate acceptance to see the original Flash thank-you.</p>
+  <div id="stage"></div>
+  <p id="status" role="status">Loading the test movie…</p>
+  <dialog id="result-dialog" aria-labelledby="result-title">
+    <h2 id="result-title">Choose a simulated result</h2>
+    <pre id="received-fields"></pre>
+    <form method="dialog">
+      <button value="cancel">Cancel</button>
+      <button value="reject">Simulate rejection</button>
+      <button value="accept">Simulate acceptance</button>
+    </form>
+  </dialog>
+</body>
+</html>

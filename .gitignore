@@ -33,6 +33,10 @@ $RECYCLE.BIN/
 !.env.sample
 .htpasswd
 node_modules/
+/docs/recaptcha-v2-setup.local.md
+/docs/recaptcha-v2-setup.local.*.md
+/docs/recaptcha-v2-setup.prod.md
+/docs/recaptcha-v2-setup.prod.*.md
 
 # Logs and local archives
 # https://gist.github.com/octocat/9257657

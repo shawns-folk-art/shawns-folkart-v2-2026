@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <!-- @format -->
 
 <html lang="en">
@@ -12,15 +12,23 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png" />
   <link rel="manifest" href="../favicon/site.webmanifest" />
   <link rel="stylesheet" href="../css/flash-stage.css" />
+  <link rel="stylesheet" href="../css/comments.css" />
   <script src="../scripts/ruffle-config.js" data-rewrite-navigation></script>
-  <script src="../vendor/ruffle/0.7.1/ruffle.js"></script>
+  <script src="../vendor/ruffle/0.7.1/ruffle.js" defer></script>
+  <script src="comments-form.js" type="module"></script>
 </head>
 
 <body bgcolor="#FFFFFF">
-  <!-- URL's used in the movie-->
-  <div align="center" class="flash-stage">
-    <a href="#"></a>
-    <!-- text used in the movie-->
+  <main id="comments"
+    data-formspree-endpoint="https://formspree.io/f/mjywplve"
+    data-recaptcha-site-key="6Lcjki8uAAAAALAluFFEVVHz3a8tyqfWzwd2rHQt"
+    data-production-formspree-endpoint="https://formspree.io/f/xjywjavj"
+    data-production-recaptcha-site-key="6LeqgDAuAAAAAJTXzDE3M3T_eb2p-4HtEBn5kdW2">
+    <div id="comments-stage" class="flash-stage"></div>
+    <p id="comments-status" role="status"></p>
+  </main>
+
+  <template id="legacy-comments-movie">
     <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
       codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="760"
       height="420" vspace="0" hspace="0">
@@ -32,7 +40,15 @@
         PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" vspace="0"
         hspace="0" />
     </object>
-  </div>
+  </template>
+
+  <div id="comments-backdrop" hidden></div>
+  <dialog id="comments-verification" aria-modal="true" aria-labelledby="verification-title">
+    <h1 id="verification-title">Verify your submission</h1>
+    <div id="comments-captcha"></div>
+    <p id="verification-status" role="status"></p>
+    <button id="verification-cancel" type="button">Cancel</button>
+  </dialog>
 </body>
 
 </html>
